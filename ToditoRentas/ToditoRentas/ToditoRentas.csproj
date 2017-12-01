@@ -1,0 +1,427 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BBEE8F44-00E1-4DBB-9A1E-E9B7AABCB683}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ToditoRentas</RootNamespace>
+    <AssemblyName>ToditoRentas</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\css\owl.video.play.html" />
+    <Content Include="assets\css\plugins.min.css" />
+    <Content Include="assets\css\preload.min.css" />
+    <Content Include="assets\css\style.light-blue-500.min.css" />
+    <Content Include="assets\css\width-boxed.min.css" />
+    <Content Include="assets\fonts\fontawesome-webfont3e6e.html" />
+    <Content Include="assets\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.html" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\fonts\ionicons790f.svg" />
+    <Content Include="assets\fonts\Material-Design-Iconic-Fontd1f1.html" />
+    <Content Include="assets\img\backAirplane.jpg" />
+    <Content Include="assets\img\back_mountain.jpg" />
+    <Content Include="assets\img\beach.jpg" />
+    <Content Include="assets\img\black_wall.png" />
+    <Content Include="assets\img\coffee.jpg" />
+    <Content Include="assets\img\demo\100x100.svg" />
+    <Content Include="assets\img\demo\64blue.svg" />
+    <Content Include="assets\img\demo\64orange.svg" />
+    <Content Include="assets\img\demo\64sky.svg" />
+    <Content Include="assets\img\demo\avatar.png" />
+    <Content Include="assets\img\demo\avatar1.jpg" />
+    <Content Include="assets\img\demo\avatar2.jpg" />
+    <Content Include="assets\img\demo\avatar3.jpg" />
+    <Content Include="assets\img\demo\avatar4.jpg" />
+    <Content Include="assets\img\demo\avatar5.jpg" />
+    <Content Include="assets\img\demo\avatar50.jpg" />
+    <Content Include="assets\img\demo\avatar6.jpg" />
+    <Content Include="assets\img\demo\back_video.jpg" />
+    <Content Include="assets\img\demo\back_video_100x50.jpg" />
+    <Content Include="assets\img\demo\book.png" />
+    <Content Include="assets\img\demo\car1-thumb.png" />
+    <Content Include="assets\img\demo\car1.png" />
+    <Content Include="assets\img\demo\car2-thumb.jpg" />
+    <Content Include="assets\img\demo\car2.jpg" />
+    <Content Include="assets\img\demo\city_cloud.jpg" />
+    <Content Include="assets\img\demo\demo992.jpg" />
+    <Content Include="assets\img\demo\express_ipad_content1.jpg" />
+    <Content Include="assets\img\demo\express_iphone_content1.jpg" />
+    <Content Include="assets\img\demo\express_macbook_content1.jpg" />
+    <Content Include="assets\img\demo\hero1.png" />
+    <Content Include="assets\img\demo\hero2.png" />
+    <Content Include="assets\img\demo\hero3.png" />
+    <Content Include="assets\img\demo\intel.png" />
+    <Content Include="assets\img\demo\m1.jpg" />
+    <Content Include="assets\img\demo\m1.png" />
+    <Content Include="assets\img\demo\m2.jpg" />
+    <Content Include="assets\img\demo\m2.png" />
+    <Content Include="assets\img\demo\m3.jpg" />
+    <Content Include="assets\img\demo\m3.png" />
+    <Content Include="assets\img\demo\m4.png" />
+    <Content Include="assets\img\demo\macbook2016.png" />
+    <Content Include="assets\img\demo\maxis.png" />
+    <Content Include="assets\img\demo\microsoft.png" />
+    <Content Include="assets\img\demo\mock-imac-material2.png" />
+    <Content Include="assets\img\demo\mock-imac.png" />
+    <Content Include="assets\img\demo\mock-safari.png" />
+    <Content Include="assets\img\demo\mock.png" />
+    <Content Include="assets\img\demo\mock2.png" />
+    <Content Include="assets\img\demo\mock3.png" />
+    <Content Include="assets\img\demo\mock4.png" />
+    <Content Include="assets\img\demo\mock5.png" />
+    <Content Include="assets\img\demo\mock6.png" />
+    <Content Include="assets\img\demo\new_mac.png" />
+    <Content Include="assets\img\demo\nokia.png" />
+    <Content Include="assets\img\demo\office1.jpg" />
+    <Content Include="assets\img\demo\office2.jpg" />
+    <Content Include="assets\img\demo\office3.jpg" />
+    <Content Include="assets\img\demo\office4.jpg" />
+    <Content Include="assets\img\demo\p1.jpg" />
+    <Content Include="assets\img\demo\p2.jpg" />
+    <Content Include="assets\img\demo\p3.jpg" />
+    <Content Include="assets\img\demo\p4.jpg" />
+    <Content Include="assets\img\demo\p5.jpg" />
+    <Content Include="assets\img\demo\p6.jpg" />
+    <Content Include="assets\img\demo\p75.jpg" />
+    <Content Include="assets\img\demo\paris-thumb.png" />
+    <Content Include="assets\img\demo\paris.jpg" />
+    <Content Include="assets\img\demo\pixel1.png" />
+    <Content Include="assets\img\demo\pixel2.png" />
+    <Content Include="assets\img\demo\pixel3.png" />
+    <Content Include="assets\img\demo\pixelPro.png" />
+    <Content Include="assets\img\demo\port1.jpg" />
+    <Content Include="assets\img\demo\port10.jpg" />
+    <Content Include="assets\img\demo\port11.jpg" />
+    <Content Include="assets\img\demo\port12.jpg" />
+    <Content Include="assets\img\demo\port13.jpg" />
+    <Content Include="assets\img\demo\port14.jpg" />
+    <Content Include="assets\img\demo\port15.jpg" />
+    <Content Include="assets\img\demo\port16.jpg" />
+    <Content Include="assets\img\demo\port17.jpg" />
+    <Content Include="assets\img\demo\port18.jpg" />
+    <Content Include="assets\img\demo\port19.jpg" />
+    <Content Include="assets\img\demo\port2.jpg" />
+    <Content Include="assets\img\demo\port20.jpg" />
+    <Content Include="assets\img\demo\port21.jpg" />
+    <Content Include="assets\img\demo\port22.jpg" />
+    <Content Include="assets\img\demo\port23.jpg" />
+    <Content Include="assets\img\demo\port24.jpg" />
+    <Content Include="assets\img\demo\port3.jpg" />
+    <Content Include="assets\img\demo\port4.jpg" />
+    <Content Include="assets\img\demo\port5.jpg" />
+    <Content Include="assets\img\demo\port6.jpg" />
+    <Content Include="assets\img\demo\port7.jpg" />
+    <Content Include="assets\img\demo\port8.jpg" />
+    <Content Include="assets\img\demo\port9.jpg" />
+    <Content Include="assets\img\demo\portG1.jpg" />
+    <Content Include="assets\img\demo\post1.jpg" />
+    <Content Include="assets\img\demo\post2.jpg" />
+    <Content Include="assets\img\demo\post3.jpg" />
+    <Content Include="assets\img\demo\post4.jpg" />
+    <Content Include="assets\img\demo\post5.jpg" />
+    <Content Include="assets\img\demo\postG1.jpg" />
+    <Content Include="assets\img\demo\postG2.jpg" />
+    <Content Include="assets\img\demo\postG3.jpg" />
+    <Content Include="assets\img\demo\postG4.jpg" />
+    <Content Include="assets\img\demo\postG5.jpg" />
+    <Content Include="assets\img\demo\products\1.jpg" />
+    <Content Include="assets\img\demo\products\2.jpg" />
+    <Content Include="assets\img\demo\products\3.jpg" />
+    <Content Include="assets\img\demo\products\4.jpg" />
+    <Content Include="assets\img\demo\products\5.jpg" />
+    <Content Include="assets\img\demo\products\appleWatch.png" />
+    <Content Include="assets\img\demo\products\galaxyTab.png" />
+    <Content Include="assets\img\demo\products\gear.png" />
+    <Content Include="assets\img\demo\products\ipad.png" />
+    <Content Include="assets\img\demo\products\iphone7.png" />
+    <Content Include="assets\img\demo\products\lumia.png" />
+    <Content Include="assets\img\demo\products\m1.png" />
+    <Content Include="assets\img\demo\products\m2.png" />
+    <Content Include="assets\img\demo\products\m3.png" />
+    <Content Include="assets\img\demo\products\m4.png" />
+    <Content Include="assets\img\demo\products\m5.png" />
+    <Content Include="assets\img\demo\products\macbook.png" />
+    <Content Include="assets\img\demo\products\s7.png" />
+    <Content Include="assets\img\demo\products\surface.png" />
+    <Content Include="assets\img\demo\products\surfaceBook.png" />
+    <Content Include="assets\img\demo\products\vr.png" />
+    <Content Include="assets\img\demo\products\xboxController.png" />
+    <Content Include="assets\img\demo\safariBig1.png" />
+    <Content Include="assets\img\demo\safariBig2.png" />
+    <Content Include="assets\img\demo\safariBig3.png" />
+    <Content Include="assets\img\demo\samsung.png" />
+    <Content Include="assets\img\demo\sony.png" />
+    <Content Include="assets\img\demo\surface.png" />
+    <Content Include="assets\img\demo\team.jpg" />
+    <Content Include="assets\img\demo\ubuntu_tablet.png" />
+    <Content Include="assets\img\demo\watch.png" />
+    <Content Include="assets\img\email\facebook.png" />
+    <Content Include="assets\img\email\header_mail2.jpg" />
+    <Content Include="assets\img\email\icon_cloud.png" />
+    <Content Include="assets\img\email\icon_download.png" />
+    <Content Include="assets\img\email\img1.jpg" />
+    <Content Include="assets\img\email\img2.jpg" />
+    <Content Include="assets\img\email\img3.jpg" />
+    <Content Include="assets\img\email\img4.jpg" />
+    <Content Include="assets\img\email\instagram.png" />
+    <Content Include="assets\img\email\intel.png" />
+    <Content Include="assets\img\email\logo-white.png" />
+    <Content Include="assets\img\email\logo_blue.png" />
+    <Content Include="assets\img\email\mail300_1.jpg" />
+    <Content Include="assets\img\email\mail300_2.jpg" />
+    <Content Include="assets\img\email\maxis.png" />
+    <Content Include="assets\img\email\microsoft.png" />
+    <Content Include="assets\img\email\nokia.png" />
+    <Content Include="assets\img\email\samsung.png" />
+    <Content Include="assets\img\email\sony.png" />
+    <Content Include="assets\img\email\twitter.png" />
+    <Content Include="assets\img\favicon30f4.png" />
+    <Content Include="assets\img\keyboard.jpg" />
+    <Content Include="assets\img\loading.gif" />
+    <Content Include="assets\img\meeting.jpg" />
+    <Content Include="assets\img\mountain.jpg" />
+    <Content Include="assets\img\owl.video.play.png" />
+    <Content Include="assets\img\road.jpg" />
+    <Content Include="assets\img\room.jpg" />
+    <Content Include="assets\img\skyline.jpg" />
+    <Content Include="assets\img\skyline2.jpg" />
+    <Content Include="assets\img\team2.jpg" />
+    <Content Include="assets\js\app.min.js" />
+    <Content Include="assets\js\charts-bar.js" />
+    <Content Include="assets\js\charts-circle.js" />
+    <Content Include="assets\js\charts-line.js" />
+    <Content Include="assets\js\charts-more.js" />
+    <Content Include="assets\js\coming.js" />
+    <Content Include="assets\js\component-carousels.js" />
+    <Content Include="assets\js\component-snackbar.js" />
+    <Content Include="assets\js\configurator.min.js" />
+    <Content Include="assets\js\ecommerce.js" />
+    <Content Include="assets\js\home-cv-landing.js" />
+    <Content Include="assets\js\home-cv.js" />
+    <Content Include="assets\js\home-generic-3.js" />
+    <Content Include="assets\js\home-generic-5.js" />
+    <Content Include="assets\js\home-generic-6.js" />
+    <Content Include="assets\js\home-generic-7.js" />
+    <Content Include="assets\js\index.js" />
+    <Content Include="assets\js\lead-cv-full.js" />
+    <Content Include="assets\js\lead-full.js" />
+    <Content Include="assets\js\lead.js" />
+    <Content Include="assets\js\plugins.min.js" />
+    <Content Include="assets\js\portfolio.js" />
+    <Content Include="assets\media\music.mp3" />
+    <Content Include="assets\plugins\revolution\assets\images\ball.png" />
+    <Content Include="assets\plugins\revolution\assets\images\citybg-100x50.jpg" />
+    <Content Include="assets\plugins\revolution\assets\images\citybg.jpg" />
+    <Content Include="assets\plugins\revolution\assets\images\coffee_cup1.png" />
+    <Content Include="assets\plugins\revolution\assets\images\concept.jpg" />
+    <Content Include="assets\plugins\revolution\assets\images\dummy.png" />
+    <Content Include="assets\plugins\revolution\assets\images\eraser_pink.png" />
+    <Content Include="assets\plugins\revolution\assets\images\express_bglight.jpg" />
+    <Content Include="assets\plugins\revolution\assets\images\farmbg-100x50.jpg" />
+    <Content Include="assets\plugins\revolution\assets\images\glasses.png" />
+    <Content Include="assets\plugins\revolution\assets\images\headphones.png" />
+    <Content Include="assets\plugins\revolution\assets\images\ihpone.png" />
+    <Content Include="assets\plugins\revolution\assets\images\ipad.png" />
+    <Content Include="assets\plugins\revolution\assets\images\iphone_cutout.png" />
+    <Content Include="assets\plugins\revolution\assets\images\macbookpro.png" />
+    <Content Include="assets\plugins\revolution\assets\images\paper.png" />
+    <Content Include="assets\plugins\revolution\assets\images\plant.png" />
+    <Content Include="assets\plugins\revolution\assets\images\usb.png" />
+    <Content Include="assets\plugins\revolution\assets\images\wood_pencil.png" />
+    <Content Include="assets\plugins\revolution\revolution-addons\typewriter\css\typewriter.css" />
+    <Content Include="assets\plugins\revolution\revolution-addons\typewriter\js\revolution.addon.typewriter.min.js" />
+    <Content Include="assets\plugins\revolution\revolution\assets\coloredbg.png" />
+    <Content Include="assets\plugins\revolution\revolution\assets\gridtile.png" />
+    <Content Include="assets\plugins\revolution\revolution\assets\gridtile_3x3.png" />
+    <Content Include="assets\plugins\revolution\revolution\assets\gridtile_3x3_white.png" />
+    <Content Include="assets\plugins\revolution\revolution\assets\gridtile_white.png" />
+    <Content Include="assets\plugins\revolution\revolution\assets\loader.gif" />
+    <Content Include="assets\plugins\revolution\revolution\css\closedhand.html" />
+    <Content Include="assets\plugins\revolution\revolution\css\layers.css" />
+    <Content Include="assets\plugins\revolution\revolution\css\navigation.css" />
+    <Content Include="assets\plugins\revolution\revolution\css\openhand.html" />
+    <Content Include="assets\plugins\revolution\revolution\css\settings.css" />
+    <Content Include="assets\plugins\revolution\revolution\fonts\pe-icon-7-stroke\css\pe-icon-7-stroke.css" />
+    <Content Include="assets\plugins\revolution\revolution\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-strokebb1d.svg" />
+    <Content Include="assets\plugins\revolution\revolution\fonts\revicons\revicons90c6.svg" />
+    <Content Include="assets\plugins\revolution\revolution\js\jquery.themepunch.revolution.min.js" />
+    <Content Include="assets\plugins\revolution\revolution\js\jquery.themepunch.tools.min.js" />
+    <Content Include="Global.asax" />
+    <Content Include="assets\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="assets\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="assets\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="assets\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="assets\fonts\ionicons790f.eot" />
+    <Content Include="assets\fonts\ionicons790f.ttf" />
+    <Content Include="assets\fonts\ionicons790f.woff" />
+    <Content Include="assets\fonts\Material-Design-Iconic-Fontd1f1.ttf" />
+    <Content Include="assets\fonts\Material-Design-Iconic-Fontd1f1.woff" />
+    <Content Include="assets\media\music.ogg" />
+    <Content Include="assets\plugins\revolution\revolution\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-strokebb1d.eot" />
+    <Content Include="assets\plugins\revolution\revolution\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-strokebb1d.ttf" />
+    <Content Include="assets\plugins\revolution\revolution\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-strokebb1d.woff" />
+    <Content Include="assets\plugins\revolution\revolution\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroked41d.eot" />
+    <Content Include="assets\plugins\revolution\revolution\fonts\revicons\revicons90c6.eot" />
+    <Content Include="assets\plugins\revolution\revolution\fonts\revicons\revicons90c6.ttf" />
+    <Content Include="assets\plugins\revolution\revolution\fonts\revicons\revicons90c6.woff" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\InicioController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Principal.cshtml" />
+    <Content Include="Views\Inicio\Inicio.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60497</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:60497/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
