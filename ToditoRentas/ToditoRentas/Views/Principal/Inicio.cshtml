@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ToditoRentas.Models.Producto>
+@{
+    ViewBag.Title = "Todito Rentas";
+    Layout = "~/Views/Principal/Index.cshtml";
+    ToditoRentas.Models.ToditoRentasEntities db = new ToditoRentas.Models.ToditoRentasEntities();
+}
+
+@if (Model != null && Model.Count() > 0)
+{
+    for (int i = 0; i < 3; i++)
+    {
+        <div class="row">
+            @for (int j = 0; j < 3; j++)
+            {
+                <div class="col-sm-4 mb-2">
+                    <div class="ms-thumbnail-container">
+                        <figure class="ms-thumbnail">
+                            @{
+                                byte[] arreglo = (from fp in db.FotoProducto
+                                                  where fp.IdProducto == (Model.ToList())[j].IdProducto
+                                                  select fp.FotoProducto1).ToArray()[0];
+                                string imagen = Convert.ToBase64String(arreglo, 0, arreglo.Length);
+                                imagen = "data:image/.jpeg" + "jpeg;base64," + arreglo;
+                            }
+                            <img src="@imagen" />
+                        </figure>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+}
+else
+{
+    <h2 class="text-danger no-margin-top text-center">No hay productos para mostrar</h2>
+}
+
+

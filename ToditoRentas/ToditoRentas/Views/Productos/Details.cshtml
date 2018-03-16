@@ -1,0 +1,99 @@
+﻿@model ToditoRentas.Models.Producto
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Principal/Index.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Producto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Marca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Modelo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modelo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Anio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Anio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrecioDia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrecioDia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrecioTresDias)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrecioTresDias)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrecioSemana)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrecioSemana)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Categoria.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categoria.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion.Descripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdProducto }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

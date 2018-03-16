@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ToditoRentasModelStoreContainer" CdmEntityContainer="ToditoRentasEntities">
+    <EntitySetMapping Name="Administrador">
+      <EntityTypeMapping TypeName="ToditoRentasModel.Administrador">
+        <MappingFragment StoreEntitySet="Administrador">
+          <ScalarProperty Name="IdAdministrador" ColumnName="IdAdministrador" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="CorreoElectronico" ColumnName="CorreoElectronico" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+          <ScalarProperty Name="NumeroCelular" ColumnName="NumeroCelular" />
+          <ScalarProperty Name="NumeroFijo" ColumnName="NumeroFijo" />
+          <ScalarProperty Name="Rol" ColumnName="Rol" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AutorizarPagos">
+      <EntityTypeMapping TypeName="ToditoRentasModel.AutorizarPagos">
+        <MappingFragment StoreEntitySet="AutorizarPagos">
+          <ScalarProperty Name="IdAutorizar" ColumnName="IdAutorizar" />
+          <ScalarProperty Name="De" ColumnName="De" />
+          <ScalarProperty Name="Para" ColumnName="Para" />
+          <ScalarProperty Name="TotalPago" ColumnName="TotalPago" />
+          <ScalarProperty Name="StatusPago" ColumnName="StatusPago" />
+          <ScalarProperty Name="FechaGenerado" ColumnName="FechaGenerado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CalificacionProductos">
+      <EntityTypeMapping TypeName="ToditoRentasModel.CalificacionProductos">
+        <MappingFragment StoreEntitySet="CalificacionProductos">
+          <ScalarProperty Name="IdCalificacionProducto" ColumnName="IdCalificacionProducto" />
+          <ScalarProperty Name="CalificacionProducto" ColumnName="CalificacionProducto" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CalificacionUsuarios">
+      <EntityTypeMapping TypeName="ToditoRentasModel.CalificacionUsuarios">
+        <MappingFragment StoreEntitySet="CalificacionUsuarios">
+          <ScalarProperty Name="IdCalificacionUsuario" ColumnName="IdCalificacionUsuario" />
+          <ScalarProperty Name="CalificacionUsuario" ColumnName="CalificacionUsuario" />
+          <ScalarProperty Name="IdCalificador" ColumnName="IdCalificador" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cancelacion">
+      <EntityTypeMapping TypeName="ToditoRentasModel.Cancelacion">
+        <MappingFragment StoreEntitySet="Cancelacion">
+          <ScalarProperty Name="IdCancelacion" ColumnName="IdCancelacion" />
+          <ScalarProperty Name="Motivo" ColumnName="Motivo" />
+          <ScalarProperty Name="StatusCancelacion" ColumnName="StatusCancelacion" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="IdContrato" ColumnName="IdContrato" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categoria">
+      <EntityTypeMapping TypeName="ToditoRentasModel.Categoria">
+        <MappingFragment StoreEntitySet="Categoria">
+          <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdTipo" ColumnName="IdTipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ComentarioProductos">
+      <EntityTypeMapping TypeName="ToditoRentasModel.ComentarioProductos">
+        <MappingFragment StoreEntitySet="ComentarioProductos">
+          <ScalarProperty Name="IdComentarioProducto" ColumnName="IdComentarioProducto" />
+          <ScalarProperty Name="ComentarioProducto" ColumnName="ComentarioProducto" />
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ComentarioUsuarios">
+      <EntityTypeMapping TypeName="ToditoRentasModel.ComentarioUsuarios">
+        <MappingFragment StoreEntitySet="ComentarioUsuarios">
+          <ScalarProperty Name="IdComentarioUsuarios" ColumnName="IdComentarioUsuarios" />
+          <ScalarProperty Name="ComentarioUsuario" ColumnName="ComentarioUsuario" />
+          <ScalarProperty Name="IdComentador" ColumnName="IdComentador" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contrato">
+      <EntityTypeMapping TypeName="ToditoRentasModel.Contrato">
+        <MappingFragment StoreEntitySet="Contrato">
+          <ScalarProperty Name="IdContrato" ColumnName="IdContrato" />
+          <ScalarProperty Name="Arrendatario" ColumnName="Arrendatario" />
+          <ScalarProperty Name="Arrendador" ColumnName="Arrendador" />
+          <ScalarProperty Name="Dias" ColumnName="Dias" />
+          <ScalarProperty Name="FechaEmision" ColumnName="FechaEmision" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="IdRenta" ColumnName="IdRenta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CuentaBancaria">
+      <EntityTypeMapping TypeName="ToditoRentasModel.CuentaBancaria">
+        <MappingFragment StoreEntitySet="CuentaBancaria">
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Direccion">
+      <EntityTypeMapping TypeName="ToditoRentasModel.Direccion">
+        <MappingFragment StoreEntitySet="Direccion">
+          <ScalarProperty Name="IdDireccion" ColumnName="IdDireccion" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+          <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+          <ScalarProperty Name="Calle" ColumnName="Calle" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Cruzamientos" ColumnName="Cruzamientos" />
+          <ScalarProperty Name="Colonia" ColumnName="Colonia" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Filtro">
+      <EntityTypeMapping TypeName="ToditoRentasModel.Filtro">
+        <MappingFragment StoreEntitySet="Filtro">
+          <ScalarProperty Name="IdFiltro" ColumnName="IdFiltro" />
+          <ScalarProperty Name="Palabra" ColumnName="Palabra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FoliosAplica">
+      <EntityTypeMapping TypeName="ToditoRentasModel.FoliosAplica">
+        <MappingFragment StoreEntitySet="FoliosAplica">
+          <ScalarProperty Name="Tabla" ColumnName="Tabla" />
+          <ScalarProperty Name="Folio" ColumnName="Folio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FotoProducto">
+      <EntityTypeMapping TypeName="ToditoRentasModel.FotoProducto">
+        <MappingFragment StoreEntitySet="FotoProducto">
+          <ScalarProperty Name="IdFotoProducto" ColumnName="IdFotoProducto" />
+          <ScalarProperty Name="FotoProducto1" ColumnName="FotoProducto" />
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FotoUsuarios">
+      <EntityTypeMapping TypeName="ToditoRentasModel.FotoUsuarios">
+        <MappingFragment StoreEntitySet="FotoUsuarios">
+          <ScalarProperty Name="IdFotoUsuario" ColumnName="IdFotoUsuario" />
+          <ScalarProperty Name="FotoUsuario" ColumnName="FotoUsuario" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mensaje">
+      <EntityTypeMapping TypeName="ToditoRentasModel.Mensaje">
+        <MappingFragment StoreEntitySet="Mensaje">
+          <ScalarProperty Name="IdMensaje" ColumnName="IdMensaje" />
+          <ScalarProperty Name="Asunto" ColumnName="Asunto" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Noticia">
+      <EntityTypeMapping TypeName="ToditoRentasModel.Noticia">
+        <MappingFragment StoreEntitySet="Noticia">
+          <ScalarProperty Name="IdNoticia" ColumnName="IdNoticia" />
+          <ScalarProperty Name="Asunto" ColumnName="Asunto" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdAdministrador" ColumnName="IdAdministrador" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ParametrosSis">
+      <EntityTypeMapping TypeName="ToditoRentasModel.ParametrosSis">
+        <MappingFragment StoreEntitySet="ParametrosSis">
+          <ScalarProperty Name="IdParametro" ColumnName="IdParametro" />
+          <ScalarProperty Name="FechaActual" ColumnName="FechaActual" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Producto">
+      <EntityTypeMapping TypeName="ToditoRentasModel.Producto">
+        <MappingFragment StoreEntitySet="Producto">
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Marca" ColumnName="Marca" />
+          <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Anio" ColumnName="Anio" />
+          <ScalarProperty Name="PrecioDia" ColumnName="PrecioDia" />
+          <ScalarProperty Name="PrecioTresDias" ColumnName="PrecioTresDias" />
+          <ScalarProperty Name="PrecioSemana" ColumnName="PrecioSemana" />
+          <ScalarProperty Name="IdDireccion" ColumnName="IdDireccion" />
+          <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Publicacion">
+      <EntityTypeMapping TypeName="ToditoRentasModel.Publicacion">
+        <MappingFragment StoreEntitySet="Publicacion">
+          <ScalarProperty Name="IdPublicacion" ColumnName="IdPublicacion" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PublicacionRenta">
+      <EntityTypeMapping TypeName="ToditoRentasModel.PublicacionRenta">
+        <MappingFragment StoreEntitySet="PublicacionRenta">
+          <ScalarProperty Name="IdPublicacionRenta" ColumnName="IdPublicacionRenta" />
+          <ScalarProperty Name="FechaRenta" ColumnName="FechaRenta" />
+          <ScalarProperty Name="IdPublicacion" ColumnName="IdPublicacion" />
+          <ScalarProperty Name="IdRenta" ColumnName="IdRenta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Renta">
+      <EntityTypeMapping TypeName="ToditoRentasModel.Renta">
+        <MappingFragment StoreEntitySet="Renta">
+          <ScalarProperty Name="IdRenta" ColumnName="IdRenta" />
+          <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+          <ScalarProperty Name="CantidadProducto" ColumnName="CantidadProducto" />
+          <ScalarProperty Name="PrecioProducto" ColumnName="PrecioProducto" />
+          <ScalarProperty Name="DescripcionProducto" ColumnName="DescripcionProducto" />
+          <ScalarProperty Name="FechaInicial" ColumnName="FechaInicial" />
+          <ScalarProperty Name="FechaFinal" ColumnName="FechaFinal" />
+          <ScalarProperty Name="TotalRenta" ColumnName="TotalRenta" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RespuestaMensaje">
+      <EntityTypeMapping TypeName="ToditoRentasModel.RespuestaMensaje">
+        <MappingFragment StoreEntitySet="RespuestaMensaje">
+          <ScalarProperty Name="IdRespuesta" ColumnName="IdRespuesta" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdMensaje" ColumnName="IdMensaje" />
+          <ScalarProperty Name="IdAdministrador" ColumnName="IdAdministrador" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sancion">
+      <EntityTypeMapping TypeName="ToditoRentasModel.Sancion">
+        <MappingFragment StoreEntitySet="Sancion">
+          <ScalarProperty Name="IdSancion" ColumnName="IdSancion" />
+          <ScalarProperty Name="Motivo" ColumnName="Motivo" />
+          <ScalarProperty Name="Periodo" ColumnName="Periodo" />
+          <ScalarProperty Name="FechaSancion" ColumnName="FechaSancion" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="IdAdministrador" ColumnName="IdAdministrador" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sugerencia">
+      <EntityTypeMapping TypeName="ToditoRentasModel.Sugerencia">
+        <MappingFragment StoreEntitySet="Sugerencia">
+          <ScalarProperty Name="IdSugerencia" ColumnName="IdSugerencia" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SugerenciaUsuario">
+      <EntityTypeMapping TypeName="ToditoRentasModel.SugerenciaUsuario">
+        <MappingFragment StoreEntitySet="SugerenciaUsuario">
+          <ScalarProperty Name="IdSugerenciaUsuario" ColumnName="IdSugerenciaUsuario" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="IdSugerencia" ColumnName="IdSugerencia" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tipo">
+      <EntityTypeMapping TypeName="ToditoRentasModel.Tipo">
+        <MappingFragment StoreEntitySet="Tipo">
+          <ScalarProperty Name="IdTipo" ColumnName="IdTipo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="ToditoRentasModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="CorreoElectronico" ColumnName="CorreoElectronico" />
+          <ScalarProperty Name="Usuario1" ColumnName="Usuario" />
+          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+          <ScalarProperty Name="NumeroCelular" ColumnName="NumeroCelular" />
+          <ScalarProperty Name="NumeroFijo" ColumnName="NumeroFijo" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DocumentoOficial" ColumnName="DocumentoOficial" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

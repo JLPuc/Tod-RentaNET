@@ -1,0 +1,856 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ToditoRentasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Administrador">
+    <Key>
+      <PropertyRef Name="IdAdministrador" />
+    </Key>
+    <Property Name="IdAdministrador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apellido" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CorreoElectronico" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Usuario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Contrasena" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NumeroCelular" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NumeroFijo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Rol" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Sancion" Relationship="Self.RefAdministrador37" FromRole="Administrador" ToRole="Sancion" />
+    <NavigationProperty Name="RespuestaMensaje" Relationship="Self.RefAdministrador40" FromRole="Administrador" ToRole="RespuestaMensaje" />
+    <NavigationProperty Name="Noticia" Relationship="Self.RefAdministrador42" FromRole="Administrador" ToRole="Noticia" />
+  </EntityType>
+  <EntityType Name="AutorizarPagos">
+    <Key>
+      <PropertyRef Name="IdAutorizar" />
+    </Key>
+    <Property Name="IdAutorizar" Type="Int32" Nullable="false" />
+    <Property Name="De" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Para" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TotalPago" Type="Double" />
+    <Property Name="StatusPago" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="FechaGenerado" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="CalificacionProductos">
+    <Key>
+      <PropertyRef Name="IdCalificacionProducto" />
+    </Key>
+    <Property Name="IdCalificacionProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CalificacionProducto" Type="Int32" />
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+    <Property Name="IdProducto" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Producto" Relationship="Self.RefProducto12" FromRole="CalificacionProductos" ToRole="Producto" />
+    <NavigationProperty Name="Usuario" Relationship="Self.RefUsuario11" FromRole="CalificacionProductos" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="CalificacionUsuarios">
+    <Key>
+      <PropertyRef Name="IdCalificacionUsuario" />
+    </Key>
+    <Property Name="IdCalificacionUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CalificacionUsuario" Type="Int32" />
+    <Property Name="IdCalificador" Type="Int32" Nullable="false" />
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Usuario" Relationship="Self.RefUsuario10" FromRole="CalificacionUsuarios" ToRole="Usuario" />
+    <NavigationProperty Name="Usuario1" Relationship="Self.RefUsuario8" FromRole="CalificacionUsuarios" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Cancelacion">
+    <Key>
+      <PropertyRef Name="IdCancelacion" />
+    </Key>
+    <Property Name="IdCancelacion" Type="Int32" Nullable="false" />
+    <Property Name="Motivo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="StatusCancelacion" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+    <Property Name="IdContrato" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Contrato" Relationship="Self.RefContrato23" FromRole="Cancelacion" ToRole="Contrato" />
+    <NavigationProperty Name="Usuario" Relationship="Self.RefUsuario21" FromRole="Cancelacion" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="IdCategoria" />
+    </Key>
+    <Property Name="IdCategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IdTipo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Producto" Relationship="Self.RefCategoria13" FromRole="Categoria" ToRole="Producto" />
+    <NavigationProperty Name="Tipo" Relationship="Self.RefTipo41" FromRole="Categoria" ToRole="Tipo" />
+  </EntityType>
+  <EntityType Name="ComentarioProductos">
+    <Key>
+      <PropertyRef Name="IdComentarioProducto" />
+    </Key>
+    <Property Name="IdComentarioProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ComentarioProducto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IdProducto" Type="Int32" Nullable="false" />
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Producto" Relationship="Self.RefProducto24" FromRole="ComentarioProductos" ToRole="Producto" />
+    <NavigationProperty Name="Usuario" Relationship="Self.RefUsuario25" FromRole="ComentarioProductos" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="ComentarioUsuarios">
+    <Key>
+      <PropertyRef Name="IdComentarioUsuarios" />
+    </Key>
+    <Property Name="IdComentarioUsuarios" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ComentarioUsuario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IdComentador" Type="Int32" Nullable="false" />
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Usuario" Relationship="Self.RefUsuario26" FromRole="ComentarioUsuarios" ToRole="Usuario" />
+    <NavigationProperty Name="Usuario1" Relationship="Self.RefUsuario27" FromRole="ComentarioUsuarios" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Contrato">
+    <Key>
+      <PropertyRef Name="IdContrato" />
+    </Key>
+    <Property Name="IdContrato" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Arrendatario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Arrendador" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Dias" Type="Int32" />
+    <Property Name="FechaEmision" Type="DateTime" Precision="0" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="IdRenta" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cancelacion" Relationship="Self.RefContrato23" FromRole="Contrato" ToRole="Cancelacion" />
+    <NavigationProperty Name="Renta" Relationship="Self.RefRenta20" FromRole="Contrato" ToRole="Renta" />
+  </EntityType>
+  <EntityType Name="CuentaBancaria">
+    <Key>
+      <PropertyRef Name="Token" />
+    </Key>
+    <Property Name="Token" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Usuario" Relationship="Self.RefUsuario22" FromRole="CuentaBancaria" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Direccion">
+    <Key>
+      <PropertyRef Name="IdDireccion" />
+    </Key>
+    <Property Name="IdDireccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Latitud" Type="Decimal" Precision="10" Scale="7" />
+    <Property Name="Longitud" Type="Decimal" Precision="10" Scale="7" />
+    <Property Name="Calle" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Numero" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Cruzamientos" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Colonia" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Producto" Relationship="Self.RefDireccion2" FromRole="Direccion" ToRole="Producto" />
+    <NavigationProperty Name="Usuario" Relationship="Self.RefUsuario38" FromRole="Direccion" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Filtro">
+    <Key>
+      <PropertyRef Name="IdFiltro" />
+    </Key>
+    <Property Name="IdFiltro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Palabra" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="FoliosAplica">
+    <Key>
+      <PropertyRef Name="Tabla" />
+    </Key>
+    <Property Name="Tabla" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Folio" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FotoProducto">
+    <Key>
+      <PropertyRef Name="IdFotoProducto" />
+    </Key>
+    <Property Name="IdFotoProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FotoProducto1" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="IdProducto" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Producto" Relationship="Self.RefProducto16" FromRole="FotoProducto" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="FotoUsuarios">
+    <Key>
+      <PropertyRef Name="IdFotoUsuario" />
+    </Key>
+    <Property Name="IdFotoUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FotoUsuario" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Usuario" Relationship="Self.RefUsuario14" FromRole="FotoUsuarios" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Mensaje">
+    <Key>
+      <PropertyRef Name="IdMensaje" />
+    </Key>
+    <Property Name="IdMensaje" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Asunto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="RespuestaMensaje" Relationship="Self.RefMensaje39" FromRole="Mensaje" ToRole="RespuestaMensaje" />
+    <NavigationProperty Name="Usuario" Relationship="Self.RefUsuario32" FromRole="Mensaje" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Noticia">
+    <Key>
+      <PropertyRef Name="IdNoticia" />
+    </Key>
+    <Property Name="IdNoticia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Asunto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdAdministrador" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Administrador" Relationship="Self.RefAdministrador42" FromRole="Noticia" ToRole="Administrador" />
+  </EntityType>
+  <EntityType Name="ParametrosSis">
+    <Key>
+      <PropertyRef Name="IdParametro" />
+    </Key>
+    <Property Name="IdParametro" Type="Int32" Nullable="false" />
+    <Property Name="FechaActual" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="IdProducto" />
+    </Key>
+    <Property Name="IdProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Marca" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Modelo" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Anio" Type="Int32" />
+    <Property Name="PrecioDia" Type="Double" />
+    <Property Name="PrecioTresDias" Type="Double" />
+    <Property Name="PrecioSemana" Type="Double" />
+    <Property Name="IdDireccion" Type="Int32" Nullable="false" />
+    <Property Name="IdCategoria" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CalificacionProductos" Relationship="Self.RefProducto12" FromRole="Producto" ToRole="CalificacionProductos" />
+    <NavigationProperty Name="Categoria" Relationship="Self.RefCategoria13" FromRole="Producto" ToRole="Categoria" />
+    <NavigationProperty Name="ComentarioProductos" Relationship="Self.RefProducto24" FromRole="Producto" ToRole="ComentarioProductos" />
+    <NavigationProperty Name="Direccion" Relationship="Self.RefDireccion2" FromRole="Producto" ToRole="Direccion" />
+    <NavigationProperty Name="FotoProducto" Relationship="Self.RefProducto16" FromRole="Producto" ToRole="FotoProducto" />
+    <NavigationProperty Name="Publicacion" Relationship="Self.RefProducto15" FromRole="Producto" ToRole="Publicacion" />
+  </EntityType>
+  <EntityType Name="Publicacion">
+    <Key>
+      <PropertyRef Name="IdPublicacion" />
+    </Key>
+    <Property Name="IdPublicacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Titulo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Cantidad" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdProducto" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Producto" Relationship="Self.RefProducto15" FromRole="Publicacion" ToRole="Producto" />
+    <NavigationProperty Name="PublicacionRenta" Relationship="Self.RefPublicacion17" FromRole="Publicacion" ToRole="PublicacionRenta" />
+  </EntityType>
+  <EntityType Name="PublicacionRenta">
+    <Key>
+      <PropertyRef Name="IdPublicacionRenta" />
+    </Key>
+    <Property Name="IdPublicacionRenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FechaRenta" Type="DateTime" Precision="0" />
+    <Property Name="IdPublicacion" Type="Int32" Nullable="false" />
+    <Property Name="IdRenta" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Publicacion" Relationship="Self.RefPublicacion17" FromRole="PublicacionRenta" ToRole="Publicacion" />
+    <NavigationProperty Name="Renta" Relationship="Self.RefRenta18" FromRole="PublicacionRenta" ToRole="Renta" />
+  </EntityType>
+  <EntityType Name="Renta">
+    <Key>
+      <PropertyRef Name="IdRenta" />
+    </Key>
+    <Property Name="IdRenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreProducto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CantidadProducto" Type="Int32" />
+    <Property Name="PrecioProducto" Type="Double" />
+    <Property Name="DescripcionProducto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FechaInicial" Type="DateTime" Precision="0" />
+    <Property Name="FechaFinal" Type="DateTime" Precision="0" />
+    <Property Name="TotalRenta" Type="Double" />
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Contrato" Relationship="Self.RefRenta20" FromRole="Renta" ToRole="Contrato" />
+    <NavigationProperty Name="PublicacionRenta" Relationship="Self.RefRenta18" FromRole="Renta" ToRole="PublicacionRenta" />
+    <NavigationProperty Name="Usuario" Relationship="Self.RefUsuario19" FromRole="Renta" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="RespuestaMensaje">
+    <Key>
+      <PropertyRef Name="IdRespuesta" />
+    </Key>
+    <Property Name="IdRespuesta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdMensaje" Type="Int32" Nullable="false" />
+    <Property Name="IdAdministrador" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Administrador" Relationship="Self.RefAdministrador40" FromRole="RespuestaMensaje" ToRole="Administrador" />
+    <NavigationProperty Name="Mensaje" Relationship="Self.RefMensaje39" FromRole="RespuestaMensaje" ToRole="Mensaje" />
+  </EntityType>
+  <EntityType Name="Sancion">
+    <Key>
+      <PropertyRef Name="IdSancion" />
+    </Key>
+    <Property Name="IdSancion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Motivo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Periodo" Type="Int32" Nullable="false" />
+    <Property Name="FechaSancion" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+    <Property Name="IdAdministrador" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Administrador" Relationship="Self.RefAdministrador37" FromRole="Sancion" ToRole="Administrador" />
+    <NavigationProperty Name="Usuario" Relationship="Self.RefUsuario33" FromRole="Sancion" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Sugerencia">
+    <Key>
+      <PropertyRef Name="IdSugerencia" />
+    </Key>
+    <Property Name="IdSugerencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="SugerenciaUsuario" Relationship="Self.RefSugerencia29" FromRole="Sugerencia" ToRole="SugerenciaUsuario" />
+  </EntityType>
+  <EntityType Name="SugerenciaUsuario">
+    <Key>
+      <PropertyRef Name="IdSugerenciaUsuario" />
+    </Key>
+    <Property Name="IdSugerenciaUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="IdSugerencia" Type="Int32" Nullable="false" />
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Sugerencia" Relationship="Self.RefSugerencia29" FromRole="SugerenciaUsuario" ToRole="Sugerencia" />
+    <NavigationProperty Name="Usuario" Relationship="Self.RefUsuario30" FromRole="SugerenciaUsuario" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Tipo">
+    <Key>
+      <PropertyRef Name="IdTipo" />
+    </Key>
+    <Property Name="IdTipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Categoria" Relationship="Self.RefTipo41" FromRole="Tipo" ToRole="Categoria" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Apellido" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CorreoElectronico" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Usuario1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Contrasena" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NumeroCelular" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="NumeroFijo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="FechaNacimiento" Type="DateTime" Precision="0" />
+    <Property Name="Status" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DocumentoOficial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CalificacionProductos" Relationship="Self.RefUsuario11" FromRole="Usuario" ToRole="CalificacionProductos" />
+    <NavigationProperty Name="CalificacionUsuarios" Relationship="Self.RefUsuario10" FromRole="Usuario" ToRole="CalificacionUsuarios" />
+    <NavigationProperty Name="CalificacionUsuarios1" Relationship="Self.RefUsuario8" FromRole="Usuario" ToRole="CalificacionUsuarios" />
+    <NavigationProperty Name="Cancelacion" Relationship="Self.RefUsuario21" FromRole="Usuario" ToRole="Cancelacion" />
+    <NavigationProperty Name="ComentarioProductos" Relationship="Self.RefUsuario25" FromRole="Usuario" ToRole="ComentarioProductos" />
+    <NavigationProperty Name="ComentarioUsuarios" Relationship="Self.RefUsuario26" FromRole="Usuario" ToRole="ComentarioUsuarios" />
+    <NavigationProperty Name="ComentarioUsuarios1" Relationship="Self.RefUsuario27" FromRole="Usuario" ToRole="ComentarioUsuarios" />
+    <NavigationProperty Name="CuentaBancaria" Relationship="Self.RefUsuario22" FromRole="Usuario" ToRole="CuentaBancaria" />
+    <NavigationProperty Name="Direccion" Relationship="Self.RefUsuario38" FromRole="Usuario" ToRole="Direccion" />
+    <NavigationProperty Name="FotoUsuarios" Relationship="Self.RefUsuario14" FromRole="Usuario" ToRole="FotoUsuarios" />
+    <NavigationProperty Name="Mensaje" Relationship="Self.RefUsuario32" FromRole="Usuario" ToRole="Mensaje" />
+    <NavigationProperty Name="Renta" Relationship="Self.RefUsuario19" FromRole="Usuario" ToRole="Renta" />
+    <NavigationProperty Name="Sancion" Relationship="Self.RefUsuario33" FromRole="Usuario" ToRole="Sancion" />
+    <NavigationProperty Name="SugerenciaUsuario" Relationship="Self.RefUsuario30" FromRole="Usuario" ToRole="SugerenciaUsuario" />
+  </EntityType>
+  <Association Name="RefAdministrador37">
+    <End Role="Administrador" Type="Self.Administrador" Multiplicity="1" />
+    <End Role="Sancion" Type="Self.Sancion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Administrador">
+        <PropertyRef Name="IdAdministrador" />
+      </Principal>
+      <Dependent Role="Sancion">
+        <PropertyRef Name="IdAdministrador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefAdministrador40">
+    <End Role="Administrador" Type="Self.Administrador" Multiplicity="1" />
+    <End Role="RespuestaMensaje" Type="Self.RespuestaMensaje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Administrador">
+        <PropertyRef Name="IdAdministrador" />
+      </Principal>
+      <Dependent Role="RespuestaMensaje">
+        <PropertyRef Name="IdAdministrador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefAdministrador42">
+    <End Role="Administrador" Type="Self.Administrador" Multiplicity="1" />
+    <End Role="Noticia" Type="Self.Noticia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Administrador">
+        <PropertyRef Name="IdAdministrador" />
+      </Principal>
+      <Dependent Role="Noticia">
+        <PropertyRef Name="IdAdministrador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefProducto12">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+    <End Role="CalificacionProductos" Type="Self.CalificacionProductos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="IdProducto" />
+      </Principal>
+      <Dependent Role="CalificacionProductos">
+        <PropertyRef Name="IdProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefUsuario11">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="CalificacionProductos" Type="Self.CalificacionProductos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="CalificacionProductos">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefUsuario10">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="CalificacionUsuarios" Type="Self.CalificacionUsuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="CalificacionUsuarios">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefUsuario8">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="CalificacionUsuarios" Type="Self.CalificacionUsuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="CalificacionUsuarios">
+        <PropertyRef Name="IdCalificador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefContrato23">
+    <End Role="Contrato" Type="Self.Contrato" Multiplicity="1" />
+    <End Role="Cancelacion" Type="Self.Cancelacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contrato">
+        <PropertyRef Name="IdContrato" />
+      </Principal>
+      <Dependent Role="Cancelacion">
+        <PropertyRef Name="IdContrato" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefUsuario21">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Cancelacion" Type="Self.Cancelacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="Cancelacion">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefCategoria13">
+    <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="IdCategoria" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="IdCategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefTipo41">
+    <End Role="Tipo" Type="Self.Tipo" Multiplicity="1" />
+    <End Role="Categoria" Type="Self.Categoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo">
+        <PropertyRef Name="IdTipo" />
+      </Principal>
+      <Dependent Role="Categoria">
+        <PropertyRef Name="IdTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefProducto24">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+    <End Role="ComentarioProductos" Type="Self.ComentarioProductos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="IdProducto" />
+      </Principal>
+      <Dependent Role="ComentarioProductos">
+        <PropertyRef Name="IdProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefUsuario25">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="ComentarioProductos" Type="Self.ComentarioProductos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="ComentarioProductos">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefUsuario26">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="ComentarioUsuarios" Type="Self.ComentarioUsuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="ComentarioUsuarios">
+        <PropertyRef Name="IdComentador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefUsuario27">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="ComentarioUsuarios" Type="Self.ComentarioUsuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="ComentarioUsuarios">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefRenta20">
+    <End Role="Renta" Type="Self.Renta" Multiplicity="1" />
+    <End Role="Contrato" Type="Self.Contrato" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Renta">
+        <PropertyRef Name="IdRenta" />
+      </Principal>
+      <Dependent Role="Contrato">
+        <PropertyRef Name="IdRenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefUsuario22">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="CuentaBancaria" Type="Self.CuentaBancaria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="CuentaBancaria">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefDireccion2">
+    <End Role="Direccion" Type="Self.Direccion" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Direccion">
+        <PropertyRef Name="IdDireccion" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="IdDireccion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefUsuario38">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Direccion" Type="Self.Direccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="Direccion">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefProducto16">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+    <End Role="FotoProducto" Type="Self.FotoProducto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="IdProducto" />
+      </Principal>
+      <Dependent Role="FotoProducto">
+        <PropertyRef Name="IdProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefUsuario14">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="FotoUsuarios" Type="Self.FotoUsuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="FotoUsuarios">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefMensaje39">
+    <End Role="Mensaje" Type="Self.Mensaje" Multiplicity="1" />
+    <End Role="RespuestaMensaje" Type="Self.RespuestaMensaje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mensaje">
+        <PropertyRef Name="IdMensaje" />
+      </Principal>
+      <Dependent Role="RespuestaMensaje">
+        <PropertyRef Name="IdMensaje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefUsuario32">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Mensaje" Type="Self.Mensaje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="Mensaje">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefProducto15">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+    <End Role="Publicacion" Type="Self.Publicacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="IdProducto" />
+      </Principal>
+      <Dependent Role="Publicacion">
+        <PropertyRef Name="IdProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefPublicacion17">
+    <End Role="Publicacion" Type="Self.Publicacion" Multiplicity="1" />
+    <End Role="PublicacionRenta" Type="Self.PublicacionRenta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Publicacion">
+        <PropertyRef Name="IdPublicacion" />
+      </Principal>
+      <Dependent Role="PublicacionRenta">
+        <PropertyRef Name="IdPublicacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefRenta18">
+    <End Role="Renta" Type="Self.Renta" Multiplicity="1" />
+    <End Role="PublicacionRenta" Type="Self.PublicacionRenta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Renta">
+        <PropertyRef Name="IdRenta" />
+      </Principal>
+      <Dependent Role="PublicacionRenta">
+        <PropertyRef Name="IdRenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefUsuario19">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Renta" Type="Self.Renta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="Renta">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefUsuario33">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Sancion" Type="Self.Sancion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="Sancion">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefSugerencia29">
+    <End Role="Sugerencia" Type="Self.Sugerencia" Multiplicity="1" />
+    <End Role="SugerenciaUsuario" Type="Self.SugerenciaUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sugerencia">
+        <PropertyRef Name="IdSugerencia" />
+      </Principal>
+      <Dependent Role="SugerenciaUsuario">
+        <PropertyRef Name="IdSugerencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefUsuario30">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="SugerenciaUsuario" Type="Self.SugerenciaUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="SugerenciaUsuario">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ToditoRentasEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Administrador" EntityType="Self.Administrador" />
+    <EntitySet Name="AutorizarPagos" EntityType="Self.AutorizarPagos" />
+    <EntitySet Name="CalificacionProductos" EntityType="Self.CalificacionProductos" />
+    <EntitySet Name="CalificacionUsuarios" EntityType="Self.CalificacionUsuarios" />
+    <EntitySet Name="Cancelacion" EntityType="Self.Cancelacion" />
+    <EntitySet Name="Categoria" EntityType="Self.Categoria" />
+    <EntitySet Name="ComentarioProductos" EntityType="Self.ComentarioProductos" />
+    <EntitySet Name="ComentarioUsuarios" EntityType="Self.ComentarioUsuarios" />
+    <EntitySet Name="Contrato" EntityType="Self.Contrato" />
+    <EntitySet Name="CuentaBancaria" EntityType="Self.CuentaBancaria" />
+    <EntitySet Name="Direccion" EntityType="Self.Direccion" />
+    <EntitySet Name="Filtro" EntityType="Self.Filtro" />
+    <EntitySet Name="FoliosAplica" EntityType="Self.FoliosAplica" />
+    <EntitySet Name="FotoProducto" EntityType="Self.FotoProducto" />
+    <EntitySet Name="FotoUsuarios" EntityType="Self.FotoUsuarios" />
+    <EntitySet Name="Mensaje" EntityType="Self.Mensaje" />
+    <EntitySet Name="Noticia" EntityType="Self.Noticia" />
+    <EntitySet Name="ParametrosSis" EntityType="Self.ParametrosSis" />
+    <EntitySet Name="Producto" EntityType="Self.Producto" />
+    <EntitySet Name="Publicacion" EntityType="Self.Publicacion" />
+    <EntitySet Name="PublicacionRenta" EntityType="Self.PublicacionRenta" />
+    <EntitySet Name="Renta" EntityType="Self.Renta" />
+    <EntitySet Name="RespuestaMensaje" EntityType="Self.RespuestaMensaje" />
+    <EntitySet Name="Sancion" EntityType="Self.Sancion" />
+    <EntitySet Name="Sugerencia" EntityType="Self.Sugerencia" />
+    <EntitySet Name="SugerenciaUsuario" EntityType="Self.SugerenciaUsuario" />
+    <EntitySet Name="Tipo" EntityType="Self.Tipo" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+    <AssociationSet Name="RefAdministrador37" Association="Self.RefAdministrador37">
+      <End Role="Administrador" EntitySet="Administrador" />
+      <End Role="Sancion" EntitySet="Sancion" />
+    </AssociationSet>
+    <AssociationSet Name="RefAdministrador40" Association="Self.RefAdministrador40">
+      <End Role="Administrador" EntitySet="Administrador" />
+      <End Role="RespuestaMensaje" EntitySet="RespuestaMensaje" />
+    </AssociationSet>
+    <AssociationSet Name="RefAdministrador42" Association="Self.RefAdministrador42">
+      <End Role="Administrador" EntitySet="Administrador" />
+      <End Role="Noticia" EntitySet="Noticia" />
+    </AssociationSet>
+    <AssociationSet Name="RefProducto12" Association="Self.RefProducto12">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="CalificacionProductos" EntitySet="CalificacionProductos" />
+    </AssociationSet>
+    <AssociationSet Name="RefUsuario11" Association="Self.RefUsuario11">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="CalificacionProductos" EntitySet="CalificacionProductos" />
+    </AssociationSet>
+    <AssociationSet Name="RefUsuario10" Association="Self.RefUsuario10">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="CalificacionUsuarios" EntitySet="CalificacionUsuarios" />
+    </AssociationSet>
+    <AssociationSet Name="RefUsuario8" Association="Self.RefUsuario8">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="CalificacionUsuarios" EntitySet="CalificacionUsuarios" />
+    </AssociationSet>
+    <AssociationSet Name="RefContrato23" Association="Self.RefContrato23">
+      <End Role="Contrato" EntitySet="Contrato" />
+      <End Role="Cancelacion" EntitySet="Cancelacion" />
+    </AssociationSet>
+    <AssociationSet Name="RefUsuario21" Association="Self.RefUsuario21">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Cancelacion" EntitySet="Cancelacion" />
+    </AssociationSet>
+    <AssociationSet Name="RefCategoria13" Association="Self.RefCategoria13">
+      <End Role="Categoria" EntitySet="Categoria" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="RefTipo41" Association="Self.RefTipo41">
+      <End Role="Tipo" EntitySet="Tipo" />
+      <End Role="Categoria" EntitySet="Categoria" />
+    </AssociationSet>
+    <AssociationSet Name="RefProducto24" Association="Self.RefProducto24">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="ComentarioProductos" EntitySet="ComentarioProductos" />
+    </AssociationSet>
+    <AssociationSet Name="RefUsuario25" Association="Self.RefUsuario25">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="ComentarioProductos" EntitySet="ComentarioProductos" />
+    </AssociationSet>
+    <AssociationSet Name="RefUsuario26" Association="Self.RefUsuario26">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="ComentarioUsuarios" EntitySet="ComentarioUsuarios" />
+    </AssociationSet>
+    <AssociationSet Name="RefUsuario27" Association="Self.RefUsuario27">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="ComentarioUsuarios" EntitySet="ComentarioUsuarios" />
+    </AssociationSet>
+    <AssociationSet Name="RefRenta20" Association="Self.RefRenta20">
+      <End Role="Renta" EntitySet="Renta" />
+      <End Role="Contrato" EntitySet="Contrato" />
+    </AssociationSet>
+    <AssociationSet Name="RefUsuario22" Association="Self.RefUsuario22">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="CuentaBancaria" EntitySet="CuentaBancaria" />
+    </AssociationSet>
+    <AssociationSet Name="RefDireccion2" Association="Self.RefDireccion2">
+      <End Role="Direccion" EntitySet="Direccion" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="RefUsuario38" Association="Self.RefUsuario38">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Direccion" EntitySet="Direccion" />
+    </AssociationSet>
+    <AssociationSet Name="RefProducto16" Association="Self.RefProducto16">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="FotoProducto" EntitySet="FotoProducto" />
+    </AssociationSet>
+    <AssociationSet Name="RefUsuario14" Association="Self.RefUsuario14">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="FotoUsuarios" EntitySet="FotoUsuarios" />
+    </AssociationSet>
+    <AssociationSet Name="RefMensaje39" Association="Self.RefMensaje39">
+      <End Role="Mensaje" EntitySet="Mensaje" />
+      <End Role="RespuestaMensaje" EntitySet="RespuestaMensaje" />
+    </AssociationSet>
+    <AssociationSet Name="RefUsuario32" Association="Self.RefUsuario32">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Mensaje" EntitySet="Mensaje" />
+    </AssociationSet>
+    <AssociationSet Name="RefProducto15" Association="Self.RefProducto15">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="Publicacion" EntitySet="Publicacion" />
+    </AssociationSet>
+    <AssociationSet Name="RefPublicacion17" Association="Self.RefPublicacion17">
+      <End Role="Publicacion" EntitySet="Publicacion" />
+      <End Role="PublicacionRenta" EntitySet="PublicacionRenta" />
+    </AssociationSet>
+    <AssociationSet Name="RefRenta18" Association="Self.RefRenta18">
+      <End Role="Renta" EntitySet="Renta" />
+      <End Role="PublicacionRenta" EntitySet="PublicacionRenta" />
+    </AssociationSet>
+    <AssociationSet Name="RefUsuario19" Association="Self.RefUsuario19">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Renta" EntitySet="Renta" />
+    </AssociationSet>
+    <AssociationSet Name="RefUsuario33" Association="Self.RefUsuario33">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Sancion" EntitySet="Sancion" />
+    </AssociationSet>
+    <AssociationSet Name="RefSugerencia29" Association="Self.RefSugerencia29">
+      <End Role="Sugerencia" EntitySet="Sugerencia" />
+      <End Role="SugerenciaUsuario" EntitySet="SugerenciaUsuario" />
+    </AssociationSet>
+    <AssociationSet Name="RefUsuario30" Association="Self.RefUsuario30">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="SugerenciaUsuario" EntitySet="SugerenciaUsuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
